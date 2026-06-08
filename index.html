@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Organic Oil Store</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background:#f8f8f8;
+}
+
+header{
+    background:#2e7d32;
+    color:white;
+    padding:20px;
+    text-align:center;
+}
+
+nav{
+    background:#1b5e20;
+    padding:15px;
+    text-align:center;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin:0 15px;
+    font-weight:bold;
+}
+
+.hero{
+    background:url('https://images.unsplash.com/photo-1514996937319-344454492b37?auto=format&fit=crop&w=1400&q=80');
+    background-size:cover;
+    background-position:center;
+    height:450px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:white;
+}
+
+.hero-content{
+    background:rgba(0,0,0,0.6);
+    padding:30px;
+    border-radius:10px;
+}
+
+.hero h1{
+    font-size:48px;
+}
+
+.hero p{
+    margin-top:10px;
+    font-size:20px;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 25px;
+    background:#4caf50;
+    color:white;
+    text-decoration:none;
+    border-radius:5px;
+}
+
+.section{
+    padding:60px 10%;
+}
+
+.section h2{
+    text-align:center;
+    margin-bottom:30px;
+    color:#2e7d32;
+}
+
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+    text-align:center;
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+}
+
+.card h3{
+    margin:15px 0;
+}
+
+.price{
+    color:#2e7d32;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.buy-btn{
+    display:inline-block;
+    margin:15px;
+    padding:10px 20px;
+    background:#2e7d32;
+    color:white;
+    text-decoration:none;
+    border-radius:5px;
+}
+
+.about{
+    background:white;
+}
+
+.contact{
+    text-align:center;
+}
+
+.contact input,
+.contact textarea{
+    width:100%;
+    max-width:600px;
+    padding:12px;
+    margin:10px;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+.contact button{
+    padding:12px 30px;
+    background:#2e7d32;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+footer{
+    background:#1b5e20;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Organic Oil Store</h1>
+    <p>100% Natural & Cold Pressed Oils</p>
+</header>
+
+<nav>
+    <a href="#home">Home</a>
+    <a href="#products">Products</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>Pure Organic Oils</h1>
+        <p>Healthy • Natural • Chemical Free</p>
+        <a href="#products" class="btn">Shop Now</a>
+    </div>
+</section>
+
+<section class="section" id="products">
+    <h2>Our Products</h2>
+
+    <div class="products">
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1620706857370-e1b9770e8bb2?auto=format&fit=crop&w=800&q=80">
+            <h3>Organic Coconut Oil</h3>
+            <p class="price">₹399</p>
+            <a href="#" class="buy-btn">Buy Now</a>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=800&q=80">
+            <h3>Cold Pressed Sesame Oil</h3>
+            <p class="price">₹499</p>
+            <a href="#" class="buy-btn">Buy Now</a>
+        </div>
+
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1502741338009-cac2772e18bc?auto=format&fit=crop&w=800&q=80">
+            <h3>Groundnut Oil</h3>
+            <p class="price">₹449</p>
+            <a href="#" class="buy-btn">Buy Now</a>
+        </div>
+
+    </div>
+</section>
+
+<section class="section about" id="about">
+    <h2>About Us</h2>
+    <p style="text-align:center; max-width:900px; margin:auto; line-height:1.8;">
+        We provide premium quality organic and cold-pressed oils sourced directly from farmers.
+        Our oils are chemical-free, preservative-free, and packed with natural nutrients to
+        support a healthy lifestyle.
+    </p>
+</section>
+
+<section class="section contact" id="contact">
+    <h2>Contact Us</h2>
+
+    <form>
+        <input type="text" placeholder="Your Name" required><br>
+        <input type="email" placeholder="Your Email" required><br>
+        <textarea rows="5" placeholder="Your Message"></textarea><br>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+<footer>
+    <p>© 2026 Organic Oil Store | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
