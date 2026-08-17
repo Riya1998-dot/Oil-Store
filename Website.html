@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ITI Learning Portal</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            background: #12355b;
+            color: white;
+            padding: 15px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            color: #ffd166;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            background: linear-gradient(135deg, #12355b, #1d70a2);
+            color: white;
+            text-align: center;
+            padding: 90px 20px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            max-width: 700px;
+            margin: auto;
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #ffd166;
+            color: #222;
+            padding: 11px 22px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        /* ================= SECTION ================= */
+
+        section {
+            padding: 60px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-title h2 {
+            color: #12355b;
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            color: #666;
+        }
+
+        /* ================= CARDS ================= */
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .card h3 {
+            color: #12355b;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #555;
+            margin-bottom: 18px;
+        }
+
+        /* ================= PROGRESS ================= */
+
+        .progress-box {
+            max-width: 750px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #ddd;
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 15px 0;
+        }
+
+        .progress {
+            width: 65%;
+            height: 100%;
+            background: #1d70a2;
+        }
+
+        /* ================= QUIZ ================= */
+
+        .quiz-box {
+            max-width: 750px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .question {
+            margin-bottom: 25px;
+        }
+
+        .question h3 {
+            margin-bottom: 12px;
+            color: #12355b;
+        }
+
+        .option {
+            display: block;
+            background: #f1f3f5;
+            margin: 8px 0;
+            padding: 10px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .option:hover {
+            background: #e2e8f0;
+        }
+
+        #quizResult {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        /* ================= CONTACT ================= */
+
+        .contact {
+            background: #eaf2f8;
+            text-align: center;
+        }
+
+        .contact p {
+            margin: 8px;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #12355b;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 768px) {
+
+            nav {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            section {
+                padding: 45px 5%;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVIGATION ================= -->
+
+<nav>
+
+    <div class="logo">
+        🎓 ITI Learning Portal
+    </div>
+
+    <ul>
+
+        <li>
+            <a href="#home">Home</a>
+        </li>
+
+        <li>
+            <a href="#courses">Courses</a>
+        </li>
+
+        <li>
+            <a href="#materials">Materials</a>
+        </li>
+
+        <li>
+            <a href="#assignments">Assignments</a>
+        </li>
+
+        <li>
+            <a href="#quiz">Quiz</a>
+        </li>
+
+        <li>
+            <a href="#contact">Contact</a>
+        </li>
+
+    </ul>
+
+</nav>
+
+
+<!-- ================= HOME ================= -->
+
+<section class="hero" id="home">
+
+    <h1>
+        Welcome to ITI Learning Portal
+    </h1>
+
+    <p>
+        Learn technical skills, access study materials,
+        complete assignments and test your knowledge.
+    </p>
+
+    <a href="#courses" class="btn">
+        Explore Courses
+    </a>
+
+</section>
+
+
+<!-- ================= COURSES ================= -->
+
+<section id="courses">
+
+    <div class="section-title">
+
+        <h2>Our Courses</h2>
+
+        <p>
+            Select a course and start learning.
+        </p>
+
+    </div>
+
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <h3>💻 Computer Fundamentals</h3>
+
+            <p>
+                Learn computer basics, hardware,
+                software and operating systems.
+            </p>
+
+            <button
+                class="btn"
+                onclick="startCourse('Computer Fundamentals')">
+
+                Start Course
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>🐍 Python Programming</h3>
+
+            <p>
+                Learn Python programming from
+                basic concepts to practical programs.
+            </p>
+
+            <button
+                class="btn"
+                onclick="startCourse('Python Programming')">
+
+                Start Course
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>🌐 Web Development</h3>
+
+            <p>
+                Learn HTML, CSS and JavaScript
+                to create modern websites.
+            </p>
+
+            <button
+                class="btn"
+                onclick="startCourse('Web Development')">
+
+                Start Course
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>🌐 Networking</h3>
+
+            <p>
+                Learn networking fundamentals,
+                IP addresses and network devices.
+            </p>
+
+            <button
+                class="btn"
+                onclick="startCourse('Networking')">
+
+                Start Course
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================= STUDY MATERIALS ================= -->
+
+<section id="materials">
+
+    <div class="section-title">
+
+        <h2>📖 Study Materials</h2>
+
+        <p>
+            Access your learning resources.
+        </p>
+
+    </div>
+
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <h3>Computer Fundamentals</h3>
+
+            <p>
+                Basic computer concepts and notes.
+            </p>
+
+            <button
+                class="btn"
+                onclick="viewMaterial('Computer Fundamentals Notes')">
+
+                View Material
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Python Programming</h3>
+
+            <p>
+                Python beginner learning materials.
+            </p>
+
+            <button
+                class="btn"
+                onclick="viewMaterial('Python Notes')">
+
+                View Material
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>HTML & CSS</h3>
+
+            <p>
+                Learn website structure and design.
+            </p>
+
+            <button
+                class="btn"
+                onclick="viewMaterial('HTML and CSS Notes')">
+
+                View Material
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================= ASSIGNMENTS ================= -->
+
+<section id="assignments">
+
+    <div class="section-title">
+
+        <h2>📝 Assignments</h2>
+
+        <p>
+            Complete your practical activities.
+        </p>
+
+    </div>
+
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <h3>Assignment 1</h3>
+
+            <p>
+                Create a basic HTML webpage.
+            </p>
+
+            <button
+                class="btn"
+                onclick="submitAssignment(1)">
+
+                Submit Assignment
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Assignment 2</h3>
+
+            <p>
+                Write a simple Python program.
+            </p>
+
+            <button
+                class="btn"
+                onclick="submitAssignment(2)">
+
+                Submit Assignment
+
+            </button>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Assignment 3</h3>
+
+            <p>
+                Create a basic network diagram.
+            </p>
+
+            <button
+                class="btn"
+                onclick="submitAssignment(3)">
+
+                Submit Assignment
+
+            </button>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ================= STUDENT PROGRESS ================= -->
+
+<section>
+
+    <div class="section-title">
+
+        <h2>👨‍🎓 Student Progress</h2>
+
+    </div>
+
+
+    <div class="progress-box">
+
+        <h3>
+            Student: Arjun Kumar
+        </h3>
+
+        <p>
+            Course: Web Development
+        </p>
+
+        <p>
+            Progress: <strong>65%</strong>
+        </p>
+
+        <div class="progress-bar">
+
+            <div class="progress"></div>
+
+        </div>
+
+        <p>
+            Completed Lessons: 13 / 20
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ================= QUIZ ================= -->
+
+<section id="quiz">
+
+    <div class="section-title">
+
+        <h2>🧠 Online Quiz</h2>
+
+        <p>
+            Test your computer knowledge.
+        </p>
+
+    </div>
+
+
+    <div class="quiz-box">
+
+
+        <!-- QUESTION 1 -->
+
+        <div class="question">
+
+            <h3>
+                1. What does HTML stand for?
+            </h3>
+
+            <label class="option">
+
+                <input
+                    type="radio"
+                    name="q1"
+                    value="wrong">
+
+                High Technology Machine Language
+
+            </label>
+
+
+            <label class="option">
+
+                <input
+                    type="radio"
+                    name="q1"
+                    value="correct">
+
+                HyperText Markup Language
+
+            </label>
+
+
+            <label class="option">
+
+                <input
+                    type="radio"
+                    name="q1"
+                    value="wrong">
+
+                Home Tool Markup Language
+
+            </label>
+
+        </div>
+
+
+        <!-- QUESTION 2 -->
+
+        <div class="question">
+
+            <h3>
+                2. Which language is used for styling websites?
+            </h3>
+
+            <label class="option">
+
+                <input
+                    type="radio"
+                    name="q2"
+                    value="wrong">
+
+                HTML
+
+            </label>
+
+
+            <label class="option">
+
+                <input
+                    type="radio"
+                    name="q2"
+                    value="correct">
+
+                CSS
+
+            </label>
+
+
+            <label class="option">
+
+                <input
+                    type="radio"
+                    name="q2"
+                    value="wrong">
+
+                Python
+
+            </label>
+
+        </div>
+
+
+        <!-- QUESTION 3 -->
+
+        <div class="question">
+
+            <h3>
+                3. Which language is commonly used for web interactivity?
+            </h3>
+
+            <label class="option">
+
+                <input
+                    type="radio"
+                    name="q3"
+                    value="correct">
+
+                JavaScript
+
+            </label>
+
+
+            <label class="option">
+
+                <input
+                    type="radio"
+                    name="q3"
+                    value="wrong">
+
+                SQL
+
+            </label>
+
+
+            <label class="option">
+
+                <input
+                    type="radio"
+                    name="q3"
+                    value="wrong">
+
+                Excel
+
+            </label>
+
+        </div>
+
+
+        <button
+            class="btn"
+            onclick="checkQuiz()">
+
+            Submit Quiz
+
+        </button>
+
+
+        <div id="quizResult"></div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CONTACT ================= -->
+
+<section
+    id="contact"
+    class="contact">
+
+    <div class="section-title">
+
+        <h2>📞 Contact Us</h2>
+
+    </div>
+
+
+    <p>
+        <strong>
+            ITI Training Institute
+        </strong>
+    </p>
+
+    <p>
+        📧 Email:
+        training@example.com
+    </p>
+
+    <p>
+        📱 Phone:
+        +91 98765 43210
+    </p>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <p>
+        © 2026 ITI Learning Portal
+    </p>
+
+    <p>
+        Created with AI + HTML + CSS + JavaScript
+    </p>
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script>
+
+
+    /* START COURSE */
+
+    function startCourse(courseName) {
+
+        alert(
+            "Welcome to " +
+            courseName +
+            "!\n\nYour course is ready to begin."
+        );
+
+    }
+
+
+    /* VIEW MATERIAL */
+
+    function viewMaterial(materialName) {
+
+        alert(
+            "Opening:\n" +
+            materialName +
+            "\n\nYou can connect this button to a PDF or learning material."
+        );
+
+    }
+
+
+    /* ASSIGNMENT */
+
+    function submitAssignment(number) {
+
+        alert(
+            "Assignment " +
+            number +
+            " selected.\n\n" +
+            "In a real LMS, this button can open an assignment submission form."
+        );
+
+    }
+
+
+    /* QUIZ */
+
+    function checkQuiz() {
+
+        let score = 0;
+
+
+        /* Question 1 */
+
+        let q1 =
+            document.querySelector(
+                'input[name="q1"]:checked'
+            );
+
+        if (q1 && q1.value === "correct") {
+
+            score++;
+
+        }
+
+
+        /* Question 2 */
+
+        let q2 =
+            document.querySelector(
+                'input[name="q2"]:checked'
+            );
+
+        if (q2 && q2.value === "correct") {
+
+            score++;
+
+        }
+
+
+        /* Question 3 */
+
+        let q3 =
+            document.querySelector(
+                'input[name="q3"]:checked'
+            );
+
+        if (q3 && q3.value === "correct") {
+
+            score++;
+
+        }
+
+
+        /* Display Result */
+
+        let result =
+            document.getElementById(
+                "quizResult"
+            );
+
+
+        result.innerHTML =
+            "🎉 Your Score: " +
+            score +
+            " / 3";
+
+
+        if (score === 3) {
+
+            result.innerHTML +=
+                "<br>Excellent! You got all answers correct.";
+
+        }
+
+        else if (score === 2) {
+
+            result.innerHTML +=
+                "<br>Good job! Keep learning.";
+
+        }
+
+        else {
+
+            result.innerHTML +=
+                "<br>Keep practicing and try again.";
+
+        }
+
+    }
+
+</script>
+
+
+</body>
+</html>
